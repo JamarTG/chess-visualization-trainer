@@ -1,0 +1,31 @@
+.square {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.dark {
+  background-color: rgb(0, 162, 231);
+}
+
+.light {
+  background-color: rgb(242, 239, 239);
+}
+
+.highlight {
+  background-color: #077a35;
+  /* #cc0000 */
+  box-sizing: border-box;
+}
+
+.right {
+  background-color: #077a35;
+}
+
+.wrong {
+  background-color: red;
+}
