@@ -1,4 +1,5 @@
 import screenStyles from "./Screen.module.css"
+
 type ScreenProps = {
   coordinate: string;
 };

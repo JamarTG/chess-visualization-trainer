@@ -7,6 +7,7 @@ import gameStyles from "./FindTheSquare.module.css";
 const FindTheSquare = () => {
   const [targetCoordinate, setTargetCoordinate] = useState<string>("");
 
+
   useEffect(() => {
     setTargetCoordinate(() => getRandomSquare());
   }, []);
@@ -14,7 +15,7 @@ const FindTheSquare = () => {
   return (
     <div className={gameStyles.container}>
       <Screen coordinate={targetCoordinate} />
-      <Board targetCoordinate = {targetCoordinate} setTargetCoordinate={setTargetCoordinate} />
+      <Board  targetCoordinate = {targetCoordinate} setTargetCoordinate={setTargetCoordinate} />
     
     </div>
   );

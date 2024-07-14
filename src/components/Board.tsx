@@ -1,17 +1,20 @@
+import { useState, useEffect, SetStateAction, Dispatch } from "react";
 import getSquareInfo, { SquareInfo } from "../utils/getSquareInfo";
 import boardStyles from "./Board.module.css";
-import { useState, useEffect, SetStateAction, Dispatch } from "react";
 import Square from "./Square";
 
 type BoardProps = {
   targetCoordinate: string;
   setTargetCoordinate: Dispatch<SetStateAction<string>>;
+
 };
 
-const Board = ({ targetCoordinate }: BoardProps) => {
+const Board = ({
+  targetCoordinate,
+
+}: BoardProps) => {
   const [squareInfo, setSquareInfo] = useState([] as SquareInfo[]);
   const [highlightedSquare, setHighlightedSquare] = useState<string>("");
-  const [coordinateSelected, setCoordinateSelected] = useState<boolean>(false);
 
   useEffect(() => {
     setSquareInfo(getSquareInfo());
@@ -27,8 +30,7 @@ const Board = ({ targetCoordinate }: BoardProps) => {
             setHighlightedSquare={setHighlightedSquare}
             shade={sqr.shade}
             coordinate={sqr.coordinate}
-            coordinateSelected={coordinateSelected}
-            setCoordinateSelected={setCoordinateSelected}
+        
           />
         </div>
       ))}
