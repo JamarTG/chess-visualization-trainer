@@ -7,6 +7,7 @@ type SquareProps = {
   highlightedSquare: string;
   setHighlightedSquare: Dispatch<SetStateAction<string>>;
   targetCoordinate: string;
+  setUserAttempt: Dispatch<SetStateAction<number>>;
 };
 
 const Square = ({
@@ -15,13 +16,15 @@ const Square = ({
   highlightedSquare,
   setHighlightedSquare,
   targetCoordinate,
+  setUserAttempt,
 }: SquareProps) => {
-
+  
   const [feedbackStyle, setFeedbackStyle] = useState<string>("");
 
   const updateHighLightedSquare = () => {
     setHighlightedSquare(coordinate);
     setFeedbackStyle(targetCoordinate == coordinate ? "right" : "wrong");
+    setUserAttempt((prevAttemptCount) => prevAttemptCount + 1);
   };
 
   return (

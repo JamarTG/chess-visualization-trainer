@@ -6,11 +6,13 @@ import Square from "./Square";
 type BoardProps = {
   targetCoordinate: string;
   setTargetCoordinate: Dispatch<SetStateAction<string>>;
+  setUserAttempt: Dispatch<SetStateAction<number>>
 
 };
 
 const Board = ({
   targetCoordinate,
+  setUserAttempt
 
 }: BoardProps) => {
   const [squareInfo, setSquareInfo] = useState([] as SquareInfo[]);
@@ -30,7 +32,7 @@ const Board = ({
             setHighlightedSquare={setHighlightedSquare}
             shade={sqr.shade}
             coordinate={sqr.coordinate}
-        
+            setUserAttempt={setUserAttempt}        
           />
         </div>
       ))}

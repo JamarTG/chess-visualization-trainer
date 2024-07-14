@@ -6,16 +6,16 @@ import gameStyles from "./FindTheSquare.module.css";
 
 const FindTheSquare = () => {
   const [targetCoordinate, setTargetCoordinate] = useState<string>("");
-
+  const [userAttempt, setUserAttempt] = useState<number>(0);
 
   useEffect(() => {
     setTargetCoordinate(() => getRandomSquare());
-  }, []);
+  }, [setUserAttempt,userAttempt]);
 
   return (
     <div className={gameStyles.container}>
       <Screen coordinate={targetCoordinate} />
-      <Board  targetCoordinate = {targetCoordinate} setTargetCoordinate={setTargetCoordinate} />
+      <Board setUserAttempt={setUserAttempt} targetCoordinate = {targetCoordinate} setTargetCoordinate={setTargetCoordinate} />
     
     </div>
   );
