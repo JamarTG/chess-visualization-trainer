@@ -1,6 +1,6 @@
 .square {
-  width: 100px;
-  height: 100px;
+  width: 4.5rem;
+  height: 4.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,9 +23,9 @@
 }
 
 .right {
-  background-color: #077a35;
+  background-color: #1fb35a;
 }
 
 .wrong {
-  background-color: red;
+  background-color: rgb(180, 97, 97);
 }

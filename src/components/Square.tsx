@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import styles from "./Square.module.css";
+import { PerfStats } from "./FindTheSquare";
 
 type SquareProps = {
   coordinate: string;
@@ -7,7 +8,8 @@ type SquareProps = {
   highlightedSquare: string;
   setHighlightedSquare: Dispatch<SetStateAction<string>>;
   targetCoordinate: string;
-  setUserAttempt: Dispatch<SetStateAction<number>>;
+  performanceStats: PerfStats;
+  setPerformanceStats: Dispatch<SetStateAction<PerfStats>>;
 };
 
 const Square = ({
@@ -16,15 +18,21 @@ const Square = ({
   highlightedSquare,
   setHighlightedSquare,
   targetCoordinate,
-  setUserAttempt,
+  performanceStats,
+  setPerformanceStats,
 }: SquareProps) => {
-  
   const [feedbackStyle, setFeedbackStyle] = useState<string>("");
 
   const updateHighLightedSquare = () => {
+    const isCorrect = targetCoordinate == coordinate;
+
     setHighlightedSquare(coordinate);
-    setFeedbackStyle(targetCoordinate == coordinate ? "right" : "wrong");
-    setUserAttempt((prevAttemptCount) => prevAttemptCount + 1);
+    setFeedbackStyle(isCorrect ? "right" : "wrong");
+    setPerformanceStats({
+      ...performanceStats,
+      attempts: performanceStats.attempts + 1,
+      correct: performanceStats.correct + (isCorrect ? 1 : 0),
+    });
   };
 
   return (
